@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>MakePremium Store</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --glass-bg: rgba(255,255,255,.06);
+    --glass-border: rgba(255,255,255,.1);
+    --glass-blur: 24px;
+    --text-1: #f0f0f5;
+    --text-2: rgba(240,240,245,.5);
+    --accent-v: #a78bfa;
+    --accent-b: #60a5fa;
+    --accent-g: #34d399;
+    --R: 22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Outfit',sans-serif;background:#08081a;color:var(--text-1);min-height:100vh;overflow-x:hidden;padding-bottom:110px;-webkit-font-smoothing:antialiased}
+
+  /* ══ Animated BG ══ */
+  .bg{position:fixed;inset:0;z-index:0;background:linear-gradient(160deg,#080820,#10103a 35%,#0c1e38 65%,#080820)}
+  .ob{position:absolute;border-radius:50%;filter:blur(90px);animation:dr 14s ease-in-out infinite}
+  .o1{width:340px;height:340px;background:rgba(99,102,241,.35);top:-100px;left:-80px}
+  .o2{width:280px;height:280px;background:rgba(139,92,246,.3);bottom:15%;right:-90px;animation-delay:-5s;animation-duration:17s}
+  .o3{width:220px;height:220px;background:rgba(6,182,212,.22);top:38%;left:25%;animation-delay:-9s;animation-duration:20s}
+  .o4{width:200px;height:200px;background:rgba(244,114,182,.18);bottom:-50px;left:-30px;animation-delay:-3s;animation-duration:16s}
+  @keyframes dr{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(25px,-35px) scale(1.08)}66%{transform:translate(-20px,25px) scale(.94)}}
+
+  .noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .wrap{position:relative;z-index:2;padding:0 16px}
+
+  .g{background:var(--glass-bg);backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));border:1px solid var(--glass-border);box-shadow:0 8px 32px rgba(0,0,0,.15),inset 0 1px 0 rgba(255,255,255,.04)}
+
+  /* ══ Header ══ */
+  .hd{text-align:center;padding:28px 0 6px;animation:fd .55s ease-out}
+  @keyframes fd{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+  .badge{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--accent-b);margin-bottom:14px}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-g);animation:bk 2s ease-in-out infinite}
+  @keyframes bk{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+  .hd h1{font-size:30px;font-weight:800;letter-spacing:-.6px;background:linear-gradient(135deg,#eff0f8,#a5b4fc 55%,#7dd3fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .hd p{font-size:14px;color:var(--text-2);margin-top:4px}
+
+  /* ══ Balance ══ */
+  .bal{border-radius:var(--R);padding:22px;margin:16px 0 26px;position:relative;overflow:hidden;animation:fu .55s ease-out .08s both}
+  @keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  .bal::before{content:'';position:absolute;top:-60%;right:-25%;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.12),transparent 70%);pointer-events:none}
+  .bl{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:1.8px;margin-bottom:6px}
+  .bn{font-family:'JetBrains Mono',monospace;font-size:38px;font-weight:500;line-height:1.1}
+  .bn .c{font-size:15px;color:var(--text-2);font-weight:400;margin-left:4px}
+  .bb{display:flex;gap:10px;margin-top:18px}
+  .bb button{flex:1;padding:11px 0;border:1px solid rgba(255,255,255,.08);border-radius:13px;background:rgba(255,255,255,.05);color:var(--text-1);font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+  .bb button:active{transform:scale(.96);background:rgba(255,255,255,.1)}
+
+  .sec{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text-2);margin:0 0 14px 4px}
+
+  /* ══ Plans ══ */
+  .pls{display:flex;flex-direction:column;gap:12px;animation:fu .55s ease-out .16s both}
+  .pl{border-radius:var(--R);padding:18px 20px;display:flex;align-items:center;gap:15px;cursor:pointer;transition:all .22s;position:relative;overflow:hidden}
+  .pl:active{transform:scale(.97)}
+  .pl.ft{border-color:rgba(139,92,246,.3);background:rgba(139,92,246,.06)}
+  .pl.ft::after{content:'★ BEST';position:absolute;top:10px;right:12px;font-size:9px;font-weight:800;letter-spacing:.8px;color:var(--accent-v);background:rgba(139,92,246,.13);padding:3px 8px;border-radius:6px}
+  .pi{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .pi.a{background:linear-gradient(135deg,rgba(52,211,153,.18),rgba(6,182,212,.12));box-shadow:0 0 22px rgba(52,211,153,.08)}
+  .pi.b{background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(99,102,241,.12));box-shadow:0 0 22px rgba(139,92,246,.1)}
+  .pi.d{background:linear-gradient(135deg,rgba(251,191,36,.18),rgba(251,113,133,.12));box-shadow:0 0 22px rgba(251,191,36,.08)}
+  .pf{flex:1}
+  .pf h3{font-size:16px;font-weight:700;letter-spacing:-.2px;margin-bottom:1px}
+  .pf .s{font-size:12px;color:var(--text-2)}
+  .sv{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--accent-g);background:rgba(52,211,153,.1);padding:2px 7px;border-radius:6px;margin-top:3px}
+  .pp{text-align:right;flex-shrink:0}
+  .pp .am{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500}
+  .pp .mo{font-size:11px;color:var(--text-2)}
+
+  /* ══ Features ══ */
+  .fts{animation:fu .55s ease-out .24s both;margin-top:28px}
+  .fg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .fp{border-radius:16px;padding:16px 6px;text-align:center;transition:transform .15s}
+  .fp:active{transform:scale(.94)}
+  .fp .i{font-size:26px;display:block;margin-bottom:7px}
+  .fp .l{font-size:11px;font-weight:600;color:var(--text-2)}
+
+  /* ══ CTA ══ */
+  .bot{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:14px 16px 30px;background:linear-gradient(to top,rgba(8,8,26,.97) 55%,transparent)}
+  .cta{width:100%;padding:16px;border:none;border-radius:16px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .22s;box-shadow:0 6px 28px rgba(99,102,241,.35),inset 0 1px 0 rgba(255,255,255,.12);letter-spacing:.3px}
+  .cta:active{transform:scale(.97);box-shadow:0 2px 14px rgba(99,102,241,.2)}
+
+  /* ══ Sheet ══ */
+  .ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:90;animation:fi .2s ease}
+  .ov.on{display:block}
+  @keyframes fi{from{opacity:0}to{opacity:1}}
+  .sh{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;border-radius:26px 26px 0 0;padding:6px 20px 38px;background:rgba(16,14,36,.94);backdrop-filter:blur(44px);-webkit-backdrop-filter:blur(44px);border:1px solid rgba(255,255,255,.07);border-bottom:none;box-shadow:0 -10px 60px rgba(0,0,0,.5);animation:su .32s cubic-bezier(.32,.72,0,1)}
+  .sh.on{display:block}
+  @keyframes su{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .ha{width:36px;height:4px;background:rgba(255,255,255,.12);border-radius:2px;margin:10px auto 22px}
+  .st{font-size:21px;font-weight:700;text-align:center;margin-bottom:22px;letter-spacing:-.3px}
+  .si{margin-bottom:18px}
+  .si label{display:block;font-size:11px;font-weight:700;color:var(--text-2);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px}
+  .si input{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.04);color:var(--text-1);font-family:'JetBrains Mono',monospace;font-size:16px;outline:none;transition:border-color .2s,box-shadow .2s;caret-color:var(--accent-v)}
+  .si input:focus{border-color:rgba(139,92,246,.45);box-shadow:0 0 0 4px rgba(139,92,246,.08)}
+  .si input::placeholder{color:rgba(255,255,255,.18);font-family:'Outfit',sans-serif}
+  .sc{border-radius:16px;padding:16px;margin-bottom:18px}
+  .sr{display:flex;justify-content:space-between;padding:5px 0;font-size:14px}
+  .sr .k{color:var(--text-2)}.sr .v{font-weight:600}
+  .sr.t{border-top:1px solid rgba(255,255,255,.05);margin-top:8px;padding-top:12px;font-size:18px}
+  .sr.t .v{font-family:'JetBrains Mono',monospace;color:var(--accent-b)}
+  .sb{width:100%;padding:16px;border:none;border-radius:14px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 22px rgba(99,102,241,.3),inset 0 1px 0 rgba(255,255,255,.1)}
+  .sb:disabled{opacity:.25;box-shadow:none;cursor:not-allowed}
+  .sb:not(:disabled):active{transform:scale(.97)}
+</style>
+</head>
+<body>
+
+<div class="bg"><div class="ob o1"></div><div class="ob o2"></div><div class="ob o3"></div><div class="ob o4"></div></div>
+<div class="noise"></div>
+
+<div class="wrap">
+  <div class="hd">
+    <div class="badge g"><span class="dot"></span>LIVE STORE</div>
+    <h1>Telegram Premium</h1>
+    <p>Best prices · Instant delivery</p>
+  </div>
+
+  <div class="bal g">
+    <div class="bl">Your Balance</div>
+    <div class="bn" id="ba">$0<span class="c">USDT</span></div>
+    <div class="bb">
+      <button onclick="openBot('webapp_balance')">💰 Top Up</button>
+      <button onclick="openBot('webapp_gift')">🎁 Send Gift</button>
+    </div>
+  </div>
+
+  <div class="sec">Select Plan</div>
+  <div class="pls">
+    <div class="pl g" onclick="sel(3)">
+      <div class="pi a">⚡</div>
+      <div class="pf"><h3>3 Months</h3><div class="s">Quick start</div></div>
+      <div class="pp"><div class="am" id="p3">$15</div><div class="mo" id="m3">$5.0/mo</div></div>
+    </div>
+    <div class="pl g ft" onclick="sel(6)">
+      <div class="pi b">💎</div>
+      <div class="pf"><h3>6 Months</h3><div class="s">Most popular</div><div class="sv">SAVE 33%</div></div>
+      <div class="pp"><div class="am" id="p6">$20</div><div class="mo" id="m6">$3.3/mo</div></div>
+    </div>
+    <div class="pl g" onclick="sel(12)">
+      <div class="pi d">👑</div>
+      <div class="pf"><h3>12 Months</h3><div class="s">Maximum value</div><div class="sv">SAVE 53%</div></div>
+      <div class="pp"><div class="am" id="p12">$34</div><div class="mo" id="m12">$2.8/mo</div></div>
+    </div>
+  </div>
+
+  <div class="fts">
+    <div class="sec">Premium Includes</div>
+    <div class="fg">
+      <div class="fp g"><span class="i">🚫</span><span class="l">No Ads</span></div>
+      <div class="fp g"><span class="i">📁</span><span class="l">4GB Files</span></div>
+      <div class="fp g"><span class="i">⚡</span><span class="l">Fast Speed</span></div>
+      <div class="fp g"><span class="i">🎨</span><span class="l">Stickers</span></div>
+      <div class="fp g"><span class="i">🎤</span><span class="l">Voice-Text</span></div>
+      <div class="fp g"><span class="i">⭐</span><span class="l">Badge</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="bot"><button class="cta" onclick="sel(6)">🎁 Gift Premium Now</button></div>
+
+<div class="ov" id="ov" onclick="cls()"></div>
+<div class="sh" id="sh">
+  <div class="ha"></div>
+  <div class="st" id="sT">🎁 Gift 6 Months</div>
+  <div class="si"><label>Recipient</label><input type="text" id="uI" placeholder="username" autocomplete="off" autocapitalize="off" spellcheck="false"></div>
+  <div class="sc g">
+    <div class="sr"><span class="k">Plan</span><span class="v" id="sP">6 months</span></div>
+    <div class="sr"><span class="k">Price</span><span class="v" id="sPr">$20 USDT</span></div>
+    <div class="sr"><span class="k">Delivery</span><span class="v">⚡ Instant</span></div>
+    <div class="sr t"><span class="k">Total</span><span class="v" id="sTt">$20</span></div>
+  </div>
+  <button class="sb" id="bB" onclick="go()" disabled>Enter username to continue</button>
+</div>
+
+<script>
+const tg=window.Telegram.WebApp;
+tg.ready();tg.expand();
+try{tg.setHeaderColor('#08081a');tg.setBackgroundColor('#08081a')}catch(e){}
+
+let P={3:15,6:20,12:34},M=6,bU='';
+try{const q=new URLSearchParams(location.search);if(q.get('bot'))bU=q.get('bot');[3,6,12].forEach(k=>{const v=q.get('p'+k);if(v)P[k]=+v})}catch(e){}
+
+function up(){[3,6,12].forEach(k=>{document.getElementById('p'+k).textContent='$'+P[k];document.getElementById('m'+k).textContent='$'+(P[k]/k).toFixed(1)+'/mo'})}
+up();
+
+function sel(m){
+  M=m;const n={3:'3 Months',6:'6 Months',12:'12 Months'};
+  document.getElementById('sT').textContent='🎁 Gift '+n[m];
+  document.getElementById('sP').textContent=n[m];
+  document.getElementById('sPr').textContent='$'+P[m]+' USDT';
+  document.getElementById('sTt').textContent='$'+P[m];
+  document.getElementById('uI').value='';
+  const b=document.getElementById('bB');b.disabled=true;b.textContent='Enter username to continue';
+  document.getElementById('sh').classList.add('on');
+  document.getElementById('ov').classList.add('on');
+  setTimeout(()=>document.getElementById('uI').focus(),350);
+  try{tg.HapticFeedback.impactOccurred('light')}catch(e){}
+}
+function cls(){document.getElementById('sh').classList.remove('on');document.getElementById('ov').classList.remove('on')}
+
+document.getElementById('uI').addEventListener('input',function(){
+  const v=this.value.replace('@','').trim(),ok=/^[a-zA-Z0-9_]{3,32}$/.test(v),b=document.getElementById('bB');
+  b.disabled=!ok;b.textContent=ok?'Buy for @'+v+' — $'+P[M]:(v.length?'Invalid username':'Enter username to continue');
+});
+
+function go(){
+  const u=document.getElementById('uI').value.replace('@','').trim();if(!u)return;
+  try{tg.HapticFeedback.impactOccurred('medium')}catch(e){}
+  if(bU)tg.openTelegramLink('https://t.me/'+bU+'?start=buy_'+u+'_'+M);
+  else tg.sendData(JSON.stringify({action:'buy',username:u,months:M}));
+  tg.close();
+}
+function openBot(a){
+  try{tg.HapticFeedback.impactOccurred('light')}catch(e){}
+  if(bU)tg.openTelegramLink('https://t.me/'+bU+'?start='+a);
+  else tg.sendData(JSON.stringify({action:a}));
+  tg.close();
+}
+</script>
+</body>
+</html>
