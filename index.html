@@ -20,8 +20,6 @@
   .noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   .wrap{position:relative;z-index:2;padding:0 16px 120px}
   .g{background:var(--glass);backdrop-filter:blur(var(--blur));-webkit-backdrop-filter:blur(var(--blur));border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.15),inset 0 1px 0 rgba(255,255,255,.04)}
-
-  /* Header */
   .hd{text-align:center;padding:28px 0 6px;animation:fd .55s ease-out}
   @keyframes fd{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
   .badge{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--blue);margin-bottom:14px}
@@ -29,8 +27,6 @@
   @keyframes bk{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
   .hd h1{font-size:30px;font-weight:800;letter-spacing:-.6px;background:linear-gradient(135deg,#eff0f8,#a5b4fc 55%,#7dd3fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .hd p{font-size:14px;color:var(--t2);margin-top:4px}
-
-  /* Balance */
   .bal{border-radius:var(--R);padding:22px;margin:16px 0 26px;position:relative;overflow:hidden;animation:fu .55s ease-out .08s both}
   @keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
   .bal::before{content:'';position:absolute;top:-60%;right:-25%;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.12),transparent 70%);pointer-events:none}
@@ -40,10 +36,7 @@
   .bb{display:flex;gap:10px;margin-top:18px}
   .bb button{flex:1;padding:11px 0;border:1px solid rgba(255,255,255,.08);border-radius:13px;background:rgba(255,255,255,.05);color:var(--t1);font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
   .bb button:active{transform:scale(.96);background:rgba(255,255,255,.1)}
-
   .sec{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--t2);margin:0 0 14px 4px}
-
-  /* Plans */
   .pls{display:flex;flex-direction:column;gap:12px;animation:fu .55s ease-out .16s both}
   .pl{border-radius:var(--R);padding:18px 20px;display:flex;align-items:center;gap:15px;cursor:pointer;transition:all .22s;position:relative;overflow:hidden}
   .pl:active{transform:scale(.97)}
@@ -57,18 +50,12 @@
   .sv{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--green);background:rgba(52,211,153,.1);padding:2px 7px;border-radius:6px;margin-top:3px}
   .af{font-size:11px;margin-top:3px;font-weight:600}.af.y{color:var(--green)}.af.n{color:var(--rose)}
   .pp{text-align:right;flex-shrink:0}.pp .am{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500}.pp .mo{font-size:11px;color:var(--t2)}
-
-  /* Features */
   .fts{animation:fu .55s ease-out .24s both;margin-top:28px}
   .fg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
   .fp{border-radius:16px;padding:16px 6px;text-align:center}.fp .i{font-size:26px;display:block;margin-bottom:7px}.fp .l{font-size:11px;font-weight:600;color:var(--t2)}
-
-  /* CTA */
   .bot{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:14px 16px 30px;background:linear-gradient(to top,rgba(8,8,26,.97) 55%,transparent)}
   .cta{width:100%;padding:16px;border:none;border-radius:16px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .22s;box-shadow:0 6px 28px rgba(99,102,241,.35),inset 0 1px 0 rgba(255,255,255,.12)}
   .cta:active{transform:scale(.97)}
-
-  /* Sheet */
   .ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:90;animation:fi .2s ease}.ov.on{display:block}
   @keyframes fi{from{opacity:0}to{opacity:1}}
   .sh{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;border-radius:26px 26px 0 0;padding:6px 20px 38px;background:rgba(16,14,36,.94);backdrop-filter:blur(44px);-webkit-backdrop-filter:blur(44px);border:1px solid rgba(255,255,255,.07);border-bottom:none;box-shadow:0 -10px 60px rgba(0,0,0,.5);animation:su .32s cubic-bezier(.32,.72,0,1)}.sh.on{display:block}
@@ -84,21 +71,13 @@
   .sr.t{border-top:1px solid rgba(255,255,255,.05);margin-top:8px;padding-top:12px;font-size:18px}.sr.t .v{font-family:'JetBrains Mono',monospace;color:var(--blue)}
   .sb{width:100%;padding:16px;border:none;border-radius:14px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 22px rgba(99,102,241,.3)}
   .sb:disabled{opacity:.25;box-shadow:none;cursor:not-allowed}.sb:not(:disabled):active{transform:scale(.97)}
-
-  /* Loading spinner */
   .spinner{display:inline-block;width:20px;height:20px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:8px}
   @keyframes spin{to{transform:rotate(360deg)}}
-
-  /* Loading screen */
   .loading-screen{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#08081a}
   .loading-screen .ls{width:40px;height:40px;border:4px solid rgba(255,255,255,.1);border-top-color:var(--violet);border-radius:50%;animation:spin .8s linear infinite}
   .loading-screen p{margin-top:16px;color:var(--t2);font-size:14px}
-
-  /* ═══ SUCCESS OVERLAY ═══ */
   .result-overlay{display:none;position:fixed;inset:0;z-index:300;flex-direction:column;align-items:center;justify-content:center;background:rgba(8,8,26,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
   .result-overlay.on{display:flex}
-
-  /* Checkmark animation */
   .checkmark-circle{width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;animation:popIn .5s cubic-bezier(.17,.89,.32,1.28)}
   .checkmark-circle.success{background:linear-gradient(135deg,#059669,#34d399);box-shadow:0 0 60px rgba(52,211,153,.3)}
   .checkmark-circle.error{background:linear-gradient(135deg,#dc2626,#fb7185);box-shadow:0 0 60px rgba(251,113,133,.3)}
@@ -107,7 +86,6 @@
   .check-path{stroke-dasharray:60;stroke-dashoffset:60;animation:drawCheck .6s .3s ease forwards}
   @keyframes drawCheck{to{stroke-dashoffset:0}}
   .x-path{stroke-dasharray:30;stroke-dashoffset:30;animation:drawCheck .4s .3s ease forwards}
-
   .result-title{font-size:24px;font-weight:800;margin-top:24px;animation:fu .4s ease-out .2s both}
   .result-detail{font-size:14px;color:var(--t2);margin-top:8px;text-align:center;padding:0 20px;animation:fu .4s ease-out .3s both;line-height:1.5}
   .result-badge{margin-top:20px;padding:10px 20px;border-radius:14px;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;animation:fu .4s ease-out .4s both}
@@ -117,10 +95,16 @@
   .result-btn.success{background:linear-gradient(135deg,#059669,#34d399);color:#fff;box-shadow:0 4px 20px rgba(52,211,153,.25)}
   .result-btn.error{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;box-shadow:0 4px 20px rgba(99,102,241,.25)}
   .result-btn:active{transform:scale(.96)}
-
-  /* Confetti */
   .confetti-piece{position:fixed;z-index:301;width:8px;height:14px;border-radius:2px;animation:confettiFall 3s ease-out forwards}
   @keyframes confettiFall{0%{transform:translateY(0) rotateZ(0) scale(1);opacity:1}100%{transform:translateY(100vh) rotateZ(720deg) scale(0);opacity:0}}
+
+  /* ═══ TOP-UP SHEET ═══ */
+  .topup-amounts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:18px}
+  .topup-amt{padding:14px 0;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.04);color:var(--t1);font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:500;cursor:pointer;transition:all .2s;text-align:center}
+  .topup-amt:active{transform:scale(.95)}
+  .topup-amt.sel{border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.12);color:var(--violet);box-shadow:0 0 0 3px rgba(139,92,246,.1)}
+  .topup-status{text-align:center;padding:16px;font-size:14px;color:var(--t2)}
+  .topup-status .spinner-lg{width:32px;height:32px;border:3px solid rgba(255,255,255,.1);border-top-color:var(--violet);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
 </style>
 </head>
 <body>
@@ -134,7 +118,7 @@
   <p>Loading store...</p>
 </div>
 
-<!-- Main content (hidden until loaded) -->
+<!-- Main content -->
 <div class="wrap" id="mainContent" style="display:none">
   <div class="hd">
     <div class="badge g"><span class="dot"></span>LIVE STORE</div>
@@ -146,7 +130,7 @@
     <div class="bl">Your Balance</div>
     <div class="bn" id="ba">$0<span class="c">USDT</span></div>
     <div class="bb">
-      <button onclick="openBot('webapp_balance')">💰 Top Up</button>
+      <button id="topupBtn">💳 Top Up</button>
       <button onclick="openBot('webapp_gift')">🎁 Send Gift</button>
     </div>
   </div>
@@ -169,7 +153,7 @@
 
 <div class="bot" id="botCta" style="display:none"><button class="cta" onclick="sel(6)">🎁 Gift Premium Now</button></div>
 
-<!-- Buy Sheet -->
+<!-- Buy Sheet (Gift Premium) -->
 <div class="ov" id="ov" onclick="cls()"></div>
 <div class="sh" id="sh">
   <div class="ha"></div>
@@ -184,7 +168,30 @@
   <button class="sb" id="bB" onclick="buy()" disabled>Enter username to continue</button>
 </div>
 
-<!-- Result overlay (success / error) -->
+<!-- Top-Up Sheet (Payment Gateway) -->
+<div class="ov" id="tuOv" onclick="closeTopup()"></div>
+<div class="sh" id="tuSh">
+  <div class="ha"></div>
+  <div class="st">💳 Top Up Balance</div>
+  <div id="tuStep1">
+    <div class="topup-amounts" id="tuAmounts"></div>
+    <button class="sb" id="tuPayBtn" onclick="startGatewayPayment()" disabled>Select an amount</button>
+    <div style="text-align:center;margin-top:12px">
+      <span style="font-size:12px;color:var(--t2);cursor:pointer" onclick="closeTopup();openBot('webapp_balance')">Or top up via crypto transfer →</span>
+    </div>
+  </div>
+  <div id="tuStep2" style="display:none">
+    <div class="topup-status">
+      <div class="spinner-lg"></div>
+      <div style="font-size:16px;font-weight:600;color:var(--t1);margin-bottom:6px" id="tuStatusText">Waiting for payment...</div>
+      <div style="font-size:13px;color:var(--t2)" id="tuStatusSub">Complete payment in the opened window</div>
+    </div>
+    <button class="sb" id="tuOpenBtn" onclick="reopenPayment()" style="margin-top:16px;background:linear-gradient(135deg,#059669,#34d399)">🔗 Open Payment Page</button>
+    <button class="sb" style="margin-top:10px;background:rgba(255,255,255,.06);box-shadow:none" onclick="cancelTopup()">Cancel</button>
+  </div>
+</div>
+
+<!-- Result overlay -->
 <div class="result-overlay" id="resultOverlay">
   <div class="checkmark-circle" id="resultIcon"></div>
   <div class="result-title" id="resultTitle"></div>
@@ -198,43 +205,33 @@ const tg=window.Telegram.WebApp;
 tg.ready();tg.expand();
 try{tg.setHeaderColor('#08081a');tg.setBackgroundColor('#08081a')}catch(e){}
 
-// ─── Config from URL params ───
 const q=new URLSearchParams(location.search);
 const API=decodeURIComponent(q.get('api')||'');
 const bU=q.get('bot')||'';
 
-let balance=0;
-let P={3:15,6:20,12:34};
-let M=6;
+let balance=0, P={3:15,6:20,12:34}, M=6;
+let gatewayEnabled=false, currentPaymentUrl='', currentPaymentId='';
+let pollTimer=null, selectedTopupAmt=0;
 
-// ─── Load data from API on startup ───
 async function loadUser(){
-  if(!API){
-    document.getElementById('loadScreen').innerHTML='<p style="color:#fb7185">❌ Store not configured</p>';
-    return;
-  }
+  if(!API){document.getElementById('loadScreen').innerHTML='<p style="color:#fb7185">❌ Store not configured</p>';return}
   try{
-    const res=await fetch(API+'/api/user',{
-      headers:{'X-Telegram-Init-Data':tg.initData}
-    });
+    const res=await fetch(API+'/api/user',{headers:{'X-Telegram-Init-Data':tg.initData}});
     const d=await res.json();
-    if(!d.ok){
-      document.getElementById('loadScreen').innerHTML='<p style="color:#fb7185">❌ '+d.error+'</p>';
-      return;
-    }
+    if(!d.ok){document.getElementById('loadScreen').innerHTML='<p style="color:#fb7185">❌ '+d.error+'</p>';return}
     balance=d.balance;
     P={3:d.prices['3'],6:d.prices['6'],12:d.prices['12']};
+    gatewayEnabled=!!d.gateway_enabled;
     render();
-  }catch(e){
-    document.getElementById('loadScreen').innerHTML='<p style="color:#fb7185">❌ Connection failed</p>';
-  }
+  }catch(e){document.getElementById('loadScreen').innerHTML='<p style="color:#fb7185">❌ Connection failed</p>'}
 }
 
 function render(){
-  // Balance
   document.getElementById('ba').innerHTML='$'+balance+'<span class="c">USDT</span>';
+  const tuBtn=document.getElementById('topupBtn');
+  if(gatewayEnabled){tuBtn.textContent='💳 Top Up';tuBtn.onclick=openTopupSheet}
+  else{tuBtn.textContent='💰 Top Up';tuBtn.onclick=()=>openBot('webapp_balance')}
 
-  // Plans
   const plans=[
     {m:3,icon:'⚡',cls:'a',name:'3 Months',sub:'Quick start',tag:''},
     {m:6,icon:'💎',cls:'b',name:'6 Months',sub:'Most popular',tag:'<div class="sv">SAVE 33%</div>',featured:true},
@@ -242,171 +239,144 @@ function render(){
   ];
   let html='';
   plans.forEach(p=>{
-    const canAfford=balance>=P[p.m];
-    const afText=canAfford?'✅ You can afford this':'Need $'+(P[p.m]-balance)+' more';
-    const afCls=canAfford?'y':'n';
-    html+=`
-      <div class="pl g ${p.featured?'ft':''}" onclick="sel(${p.m})">
-        <div class="pi ${p.cls}">${p.icon}</div>
-        <div class="pf"><h3>${p.name}</h3><div class="s">${p.sub}</div>${p.tag}<div class="af ${afCls}">${afText}</div></div>
-        <div class="pp"><div class="am">$${P[p.m]}</div><div class="mo">$${(P[p.m]/p.m).toFixed(1)}/mo</div></div>
-      </div>`;
+    const ok=balance>=P[p.m];
+    const af=ok?'✅ You can afford this':'Need $'+(P[p.m]-balance)+' more';
+    html+=`<div class="pl g ${p.featured?'ft':''}" onclick="sel(${p.m})">
+      <div class="pi ${p.cls}">${p.icon}</div>
+      <div class="pf"><h3>${p.name}</h3><div class="s">${p.sub}</div>${p.tag}<div class="af ${ok?'y':'n'}">${af}</div></div>
+      <div class="pp"><div class="am">$${P[p.m]}</div><div class="mo">$${(P[p.m]/p.m).toFixed(1)}/mo</div></div>
+    </div>`;
   });
   document.getElementById('plansList').innerHTML=html;
-
-  // Show content
   document.getElementById('loadScreen').style.display='none';
   document.getElementById('mainContent').style.display='block';
   document.getElementById('botCta').style.display='block';
 }
 
 function sel(m){
-  M=m;
-  const n={3:'3 Months',6:'6 Months',12:'12 Months'};
+  M=m;const n={3:'3 Months',6:'6 Months',12:'12 Months'};
   document.getElementById('sT').textContent='🎁 Gift '+n[m];
   document.getElementById('sP').textContent=n[m];
   document.getElementById('sPr').textContent='$'+P[m]+' USDT';
   document.getElementById('sBal').textContent='$'+balance+' USDT';
-  const after=balance-P[m];
-  const afEl=document.getElementById('sAfter');
-  afEl.textContent='$'+after;
-  afEl.style.color=after>=0?'var(--green)':'var(--rose)';
-  document.getElementById('uI').value='';
-  updateBuyBtn('');
-  document.getElementById('sh').classList.add('on');
-  document.getElementById('ov').classList.add('on');
+  const after=balance-P[m];const afEl=document.getElementById('sAfter');
+  afEl.textContent='$'+after;afEl.style.color=after>=0?'var(--green)':'var(--rose)';
+  document.getElementById('uI').value='';updateBuyBtn('');
+  document.getElementById('sh').classList.add('on');document.getElementById('ov').classList.add('on');
   setTimeout(()=>document.getElementById('uI').focus(),350);
   try{tg.HapticFeedback.impactOccurred('light')}catch(e){}
 }
-
 function cls(){document.getElementById('sh').classList.remove('on');document.getElementById('ov').classList.remove('on')}
 
 function updateBuyBtn(v){
-  const b=document.getElementById('bB');
-  const ok=/^[a-zA-Z0-9_]{3,32}$/.test(v);
-  if(balance<P[M]){
-    b.disabled=true;b.textContent='Insufficient balance — need $'+(P[M]-balance)+' more';
-    b.style.background='linear-gradient(135deg,#991b1b,#7f1d1d)';
-  }else if(ok){
-    b.disabled=false;b.textContent='🎁 Buy for @'+v+' — $'+P[M];
-    b.style.background='linear-gradient(135deg,#6366f1,#8b5cf6)';
-  }else{
-    b.disabled=true;b.textContent=v.length?'Invalid username':'Enter username to continue';
-    b.style.background='linear-gradient(135deg,#6366f1,#8b5cf6)';
-  }
+  const b=document.getElementById('bB');const ok=/^[a-zA-Z0-9_]{3,32}$/.test(v);
+  if(balance<P[M]){b.disabled=true;b.textContent='Insufficient balance — need $'+(P[M]-balance)+' more';b.style.background='linear-gradient(135deg,#991b1b,#7f1d1d)'}
+  else if(ok){b.disabled=false;b.textContent='🎁 Buy for @'+v+' — $'+P[M];b.style.background='linear-gradient(135deg,#6366f1,#8b5cf6)'}
+  else{b.disabled=true;b.textContent=v.length?'Invalid username':'Enter username to continue';b.style.background='linear-gradient(135deg,#6366f1,#8b5cf6)'}
 }
+document.getElementById('uI').addEventListener('input',function(){updateBuyBtn(this.value.replace('@','').trim())});
 
-document.getElementById('uI').addEventListener('input',function(){
-  updateBuyBtn(this.value.replace('@','').trim());
-});
-
-// ─── PURCHASE — happens entirely in webapp! ───
 async function buy(){
-  const u=document.getElementById('uI').value.replace('@','').trim();
-  if(!u)return;
-
-  const b=document.getElementById('bB');
-  b.disabled=true;
-  b.innerHTML='<span class="spinner"></span>Processing...';
+  const u=document.getElementById('uI').value.replace('@','').trim();if(!u)return;
+  const b=document.getElementById('bB');b.disabled=true;b.innerHTML='<span class="spinner"></span>Processing...';
   try{tg.HapticFeedback.impactOccurred('medium')}catch(e){}
-
   try{
-    const res=await fetch(API+'/api/purchase',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'X-Telegram-Init-Data':tg.initData
-      },
-      body:JSON.stringify({username:u,months:M})
-    });
-    const d=await res.json();
-
-    cls(); // close sheet
-
-    if(d.ok){
-      // Update balance
-      balance=d.new_balance;
-      render();
-      showResult('success',d);
-    }else{
-      if(d.new_balance!==undefined) balance=d.new_balance;
-      render();
-      showResult('error',d);
-    }
-  }catch(e){
-    cls();
-    showResult('error',{error:'Connection failed. Please try again.',username:u,months:M});
-  }
+    const res=await fetch(API+'/api/purchase',{method:'POST',headers:{'Content-Type':'application/json','X-Telegram-Init-Data':tg.initData},body:JSON.stringify({username:u,months:M})});
+    const d=await res.json();cls();
+    if(d.ok){balance=d.new_balance;render();showResult('success',d)}
+    else{if(d.new_balance!==undefined)balance=d.new_balance;render();showResult('error',d)}
+  }catch(e){cls();showResult('error',{error:'Connection failed. Please try again.',username:u,months:M})}
 }
 
-// ─── RESULT SCREEN with animation ───
-function showResult(type, data){
-  const overlay=document.getElementById('resultOverlay');
-  const icon=document.getElementById('resultIcon');
-  const title=document.getElementById('resultTitle');
-  const detail=document.getElementById('resultDetail');
-  const badge=document.getElementById('resultBadge');
-  const btn=document.getElementById('resultBtn');
+// ═══ TOP-UP (Payment Gateway) ═══
+function openTopupSheet(){
+  if(!gatewayEnabled){openBot('webapp_balance');return}
+  selectedTopupAmt=0;
+  document.getElementById('tuStep1').style.display='';
+  document.getElementById('tuStep2').style.display='none';
+  const amounts=[10,20,50,100,200,500];let html='';
+  amounts.forEach(a=>{html+=`<div class="topup-amt" data-amt="${a}" onclick="selectTopupAmt(${a})">$${a}</div>`});
+  document.getElementById('tuAmounts').innerHTML=html;
+  updateTopupBtn();
+  document.getElementById('tuSh').classList.add('on');document.getElementById('tuOv').classList.add('on');
+  try{tg.HapticFeedback.impactOccurred('light')}catch(e){}
+}
+function closeTopup(){document.getElementById('tuSh').classList.remove('on');document.getElementById('tuOv').classList.remove('on');if(pollTimer){clearInterval(pollTimer);pollTimer=null}}
+function selectTopupAmt(a){
+  selectedTopupAmt=a;
+  document.querySelectorAll('.topup-amt').forEach(el=>el.classList.toggle('sel',parseInt(el.dataset.amt)===a));
+  updateTopupBtn();try{tg.HapticFeedback.selectionChanged()}catch(e){}
+}
+function updateTopupBtn(){
+  const btn=document.getElementById('tuPayBtn');
+  if(selectedTopupAmt>0){btn.disabled=false;btn.textContent='💳 Pay $'+selectedTopupAmt+' Now';btn.style.background='linear-gradient(135deg,#6366f1,#8b5cf6)'}
+  else{btn.disabled=true;btn.textContent='Select an amount';btn.style.background=''}
+}
 
+async function startGatewayPayment(){
+  if(!selectedTopupAmt)return;
+  const btn=document.getElementById('tuPayBtn');btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Creating payment...';
+  try{
+    const res=await fetch(API+'/api/create-topup',{method:'POST',headers:{'Content-Type':'application/json','X-Telegram-Init-Data':tg.initData},body:JSON.stringify({amount:selectedTopupAmt})});
+    const d=await res.json();
+    if(!d.ok){btn.disabled=false;btn.textContent='❌ '+d.error;btn.style.background='linear-gradient(135deg,#991b1b,#7f1d1d)';setTimeout(updateTopupBtn,3000);return}
+    currentPaymentId=d.payment_id;currentPaymentUrl=d.payment_url;
+    document.getElementById('tuStep1').style.display='none';document.getElementById('tuStep2').style.display='';
+    document.getElementById('tuStatusText').textContent='Waiting for payment...';
+    document.getElementById('tuStatusSub').textContent='Amount: $'+selectedTopupAmt+' USD';
+    document.getElementById('tuOpenBtn').style.display='';
+    try{tg.openLink(currentPaymentUrl)}catch(e){window.open(currentPaymentUrl,'_blank')}
+    startStatusPolling();
+  }catch(e){btn.disabled=false;btn.textContent='❌ Connection error';btn.style.background='linear-gradient(135deg,#991b1b,#7f1d1d)';setTimeout(updateTopupBtn,3000)}
+}
+
+function reopenPayment(){if(currentPaymentUrl){try{tg.openLink(currentPaymentUrl)}catch(e){window.open(currentPaymentUrl,'_blank')}}}
+
+function startStatusPolling(){
+  if(pollTimer)clearInterval(pollTimer);let checks=0;
+  pollTimer=setInterval(async()=>{
+    checks++;if(checks>180){clearInterval(pollTimer);pollTimer=null;document.getElementById('tuStatusText').textContent='Session expired';return}
+    try{
+      const res=await fetch(API+'/api/topup-status?payment_id='+currentPaymentId,{headers:{'X-Telegram-Init-Data':tg.initData}});
+      const d=await res.json();if(!d.ok)return;
+      if(d.status==='confirmed'){
+        clearInterval(pollTimer);pollTimer=null;balance=d.balance;closeTopup();render();
+        showResult('success',{months:0,username:'',order_id:'',new_balance:d.balance,_topup:true,_amount:selectedTopupAmt});return;
+      }
+      if(d.status==='verifying'){document.getElementById('tuStatusText').textContent='Payment received, verifying...';document.getElementById('tuStatusSub').textContent='Almost there!'}
+      if(d.status==='expired'){clearInterval(pollTimer);pollTimer=null;document.getElementById('tuStatusText').textContent='Payment expired';document.getElementById('tuStatusSub').textContent='Please start a new top-up';document.getElementById('tuOpenBtn').style.display='none'}
+    }catch(e){}
+  },5000);
+}
+function cancelTopup(){if(pollTimer){clearInterval(pollTimer);pollTimer=null}closeTopup()}
+
+// ═══ RESULT SCREEN ═══
+function showResult(type,data){
+  const overlay=document.getElementById('resultOverlay'),icon=document.getElementById('resultIcon'),title=document.getElementById('resultTitle'),detail=document.getElementById('resultDetail'),badge=document.getElementById('resultBadge'),btn=document.getElementById('resultBtn');
   if(type==='success'){
     try{tg.HapticFeedback.notificationOccurred('success')}catch(e){}
-    icon.className='checkmark-circle success';
-    icon.innerHTML='<svg viewBox="0 0 24 24"><path class="check-path" d="M4 12l6 6L20 6"/></svg>';
-    title.textContent='Purchase Complete!';
-    title.style.color=`var(--green)`;
-    detail.innerHTML=`<b>${data.months}M Premium</b> gifted to <b>@${data.username}</b><br>Order #${data.order_id}`;
-    badge.className='result-badge success';
-    badge.textContent='Balance: $'+data.new_balance+' USDT';
-    btn.className='result-btn success';
-    btn.textContent='✨ Continue Shopping';
-    spawnConfetti();
+    icon.className='checkmark-circle success';icon.innerHTML='<svg viewBox="0 0 24 24"><path class="check-path" d="M4 12l6 6L20 6"/></svg>';
+    if(data._topup){title.textContent='Top-Up Complete!';detail.innerHTML='<b>+$'+data._amount+'</b> added to your balance'}
+    else{title.textContent='Purchase Complete!';detail.innerHTML=`<b>${data.months}M Premium</b> gifted to <b>@${data.username}</b><br>Order #${data.order_id}`}
+    title.style.color='var(--green)';badge.className='result-badge success';badge.textContent='Balance: $'+data.new_balance+' USDT';
+    btn.className='result-btn success';btn.textContent='✨ Continue Shopping';spawnConfetti();
   }else{
     try{tg.HapticFeedback.notificationOccurred('error')}catch(e){}
-    icon.className='checkmark-circle error';
-    icon.innerHTML='<svg viewBox="0 0 24 24"><path class="x-path" d="M6 6l12 12"/><path class="x-path" d="M18 6L6 18"/></svg>';
-    title.textContent='Purchase Failed';
-    title.style.color='var(--rose)';
-    detail.textContent=data.error||'Something went wrong';
-    badge.className='result-badge error';
-    badge.textContent=data.refunded?'💰 Balance refunded':'Try again';
-    btn.className='result-btn error';
-    btn.textContent='← Back to Store';
+    icon.className='checkmark-circle error';icon.innerHTML='<svg viewBox="0 0 24 24"><path class="x-path" d="M6 6l12 12"/><path class="x-path" d="M18 6L6 18"/></svg>';
+    title.textContent='Purchase Failed';title.style.color='var(--rose)';detail.textContent=data.error||'Something went wrong';
+    badge.className='result-badge error';badge.textContent=data.refunded?'💰 Balance refunded':'Try again';
+    btn.className='result-btn error';btn.textContent='← Back to Store';
   }
-
   overlay.classList.add('on');
 }
+function closeResult(){document.getElementById('resultOverlay').classList.remove('on');document.querySelectorAll('.confetti-piece').forEach(el=>el.remove())}
 
-function closeResult(){
-  document.getElementById('resultOverlay').classList.remove('on');
-  document.querySelectorAll('.confetti-piece').forEach(el=>el.remove());
-}
-
-// ─── CONFETTI ───
 function spawnConfetti(){
-  const colors=['#a78bfa','#60a5fa','#34d399','#fbbf24','#fb7185','#f472b6','#6366f1','#22d3ee'];
-  for(let i=0;i<60;i++){
-    const el=document.createElement('div');
-    el.className='confetti-piece';
-    el.style.left=Math.random()*100+'vw';
-    el.style.top=-10-Math.random()*20+'px';
-    el.style.background=colors[Math.floor(Math.random()*colors.length)];
-    el.style.animationDelay=Math.random()*0.8+'s';
-    el.style.animationDuration=2+Math.random()*2+'s';
-    el.style.transform='rotate('+Math.random()*360+'deg)';
-    el.style.width=6+Math.random()*6+'px';
-    el.style.height=10+Math.random()*8+'px';
-    document.body.appendChild(el);
-  }
+  const c=['#a78bfa','#60a5fa','#34d399','#fbbf24','#fb7185','#f472b6','#6366f1','#22d3ee'];
+  for(let i=0;i<60;i++){const el=document.createElement('div');el.className='confetti-piece';el.style.left=Math.random()*100+'vw';el.style.top=-10-Math.random()*20+'px';el.style.background=c[Math.floor(Math.random()*c.length)];el.style.animationDelay=Math.random()*0.8+'s';el.style.animationDuration=2+Math.random()*2+'s';el.style.transform='rotate('+Math.random()*360+'deg)';el.style.width=6+Math.random()*6+'px';el.style.height=10+Math.random()*8+'px';document.body.appendChild(el)}
 }
+function openBot(a){try{tg.HapticFeedback.impactOccurred('light')}catch(e){};if(bU)tg.openTelegramLink('https://t.me/'+bU+'?start='+a);else tg.sendData(JSON.stringify({action:a}));tg.close()}
 
-function openBot(a){
-  try{tg.HapticFeedback.impactOccurred('light')}catch(e){}
-  if(bU)tg.openTelegramLink('https://t.me/'+bU+'?start='+a);
-  else tg.sendData(JSON.stringify({action:a}));
-  tg.close();
-}
-
-// ─── INIT ───
 loadUser();
 </script>
 </body>
